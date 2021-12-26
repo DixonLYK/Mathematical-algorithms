@@ -1,0 +1,50 @@
+from math import*
+num= float(input("Enter number: "))
+factor = 10
+is_not_int = True
+if floor(num) == num or ceil(num) == num:
+    print(str(int(num)))
+else:
+    while is_not_int:
+        trial = num*factor
+        down = floor(trial)
+        up = ceil(trial)
+        if down < trial < up:
+            is_not_int = True
+            factor *= 10
+            continue
+        elif trial == down or trial == up:
+            break
+dividend = int(factor*num)
+divisor = factor
+fac_dividend = []
+fac_divisor = []
+com_fac =[]
+for index in range(1, dividend+1):
+    rem1 = dividend%index
+    if rem1 == 0:
+        fac_dividend.append(index)
+for index in range(1,divisor+1):
+    rem2 = divisor%index
+    if rem2 == 0:
+        fac_divisor.append(index)
+for fac_dend in fac_dividend:
+    for fac_sor in fac_divisor:
+        if fac_sor == fac_dend:
+            com_fac.append(fac_sor)
+hcf = com_fac[-1]
+low_dend = int(dividend/hcf)
+low_sor = int(divisor/hcf)
+if low_dend < low_sor:
+    frac1 = str(low_dend) + "/"+ str(low_sor)
+    print(frac1)
+elif low_dend == low_sor:
+    print(1)
+elif hcf == divisor:
+    ans = int(dividend/divisor)
+    print(ans)
+elif low_dend > low_sor and hcf != divisor:
+    rem3 = int(low_dend%low_sor)
+    quo = int((low_dend-rem3)/low_sor)
+    frac2 = str(quo)+" and "+ str(rem3)+"/"+str(low_sor)
+    print(frac2)
