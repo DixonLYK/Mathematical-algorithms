@@ -1,0 +1,9 @@
+dividend = int(input("Enter dividend: "))
+divisor = int(input("Enter divisor: "))
+for index in range(1, dividend):
+    rem = dividend-(index*divisor)
+    if rem < 0:
+        quo = int(index-1)
+        real_rem= dividend-(quo*divisor)
+        break
+print("Q= "+str(quo)+", "+"R= "+str(real_rem))
