@@ -1,0 +1,17 @@
+num = int(input("Enter number: "))
+factor_count = 0
+is_a_comp = False
+if num == 0 or num == 1:
+    print(str(num)+" is neither prime nor composite")
+elif num != 0 or num !=1:
+    for index in range(1, num+1):
+        rem = num%index
+        if rem == 0:
+            factor_count+=1
+        if factor_count ==3:
+            is_a_comp= True
+            break
+    if factor_count == 2:
+        print(str(num)+ " is a prime number")
+    if is_a_comp:
+        print(str(num) + " is a composite number")
