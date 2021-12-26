@@ -1,0 +1,8 @@
+from math import*
+num = float(input("Enter number: "))
+up = ceil(num)
+down = floor(num)
+if down < num < up:
+    print(str(num)+" is not an integer")
+elif num == down or num == up:
+    print(str(num)+" is an integer")
