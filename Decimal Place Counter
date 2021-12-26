@@ -1,0 +1,19 @@
+from math import*
+num= float(input("Enter number: "))
+factor = 10
+is_not_int = True
+if floor(num) == num or ceil(num) == num:
+    print(str(int(num)) + " is a whole number and has no decimal places")
+else:
+    while is_not_int:
+        trial = num*factor
+        down = floor(trial)
+        up = ceil(trial)
+        if down < trial < up:
+            is_not_int = True
+            factor *= 10
+            continue
+        elif trial == down or trial == up:
+            break
+    d_p = int(log10(factor))
+    print(str(num)+" has "+ str(d_p)+" decimal places")
