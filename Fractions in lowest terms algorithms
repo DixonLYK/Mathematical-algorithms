@@ -1,0 +1,22 @@
+dividend = int(input("Enter dividend:"))
+divisor = int(input("Enter divisor:"))
+fac_dividend = []
+fac_divisor = []
+com_fac =[]
+for index in range(1, dividend+1):
+    rem1 = dividend%index
+    if rem1 == 0:
+        fac_dividend.append(index)
+for index in range(1,divisor+1):
+    rem2 = divisor%index
+    if rem2 == 0:
+        fac_divisor.append(index)
+for fac_dend in fac_dividend:
+    for fac_sor in fac_divisor:
+        if fac_sor == fac_dend:
+            com_fac.append(fac_sor)
+hcf = com_fac[-1]
+low_dend = int(dividend/hcf)
+low_sor = int(divisor/hcf)
+frac = str(low_dend) + "/"+ str(low_sor)
+print(frac)
