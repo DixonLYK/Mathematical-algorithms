@@ -1,0 +1,7 @@
+num = int(input("Enter number:"))
+list_of_factors = []
+for index in range(1,num+1):
+    rem = num%index
+    if rem ==0:
+        list_of_factors.append(index)
+print("The list of factors of "+str(num)+" is "+ str(list_of_factors))
