@@ -1,0 +1,62 @@
+num =int(input("Enter number: "))
+list_of_factors = []
+list_of_prime=[]
+for index in range(1,num+1):
+    rem1 = num%index
+    if rem1 ==0:
+        list_of_factors.append(index)
+for factor in list_of_factors:
+    factor_count = 0
+    is_a_comp = False
+    if factor == 1:
+        continue
+    elif factor != 1:
+        for index in range(1, factor + 1):
+            rem2 = factor % index
+            if rem2 == 0:
+                factor_count += 1
+            if factor_count == 3:
+                is_a_comp = True
+                continue
+        if factor_count == 2:
+            list_of_prime.append(factor)
+        if is_a_comp:
+            continue
+fact_form =[]
+count = 0
+quo =num
+while quo%list_of_prime[count] == 0:
+    fact_form.append(list_of_prime[count])
+    quo/=list_of_prime[count]
+    if quo%list_of_prime[count]==0:
+        continue
+    if quo%list_of_prime[count] !=0 and quo !=1:
+        count +=1
+    elif quo == 1:
+        break
+
+inx = []
+for pf in list_of_prime:
+    inx.append(0)
+
+for pf in list_of_prime:
+    for fctr in fact_form:
+        if pf == fctr:
+            inx[list_of_prime.index(pf)]+=1
+        else:
+            continue
+
+ans_list = []
+for n in range(len(list_of_prime)):
+    string = ""
+    if inx[n] == 1:
+        string = string+str(list_of_prime[n])
+        ans_list.append(string)
+    elif inx[n] != 1:
+        string = string+str(list_of_prime[n])+"^("+str(inx[n])+")"
+        ans_list.append(string)
+ans_str = ""
+for a in range(len(ans_list)-1):
+    ans_str+= ans_list[a] +" x "
+ans_str+= ans_list[-1]
+print(ans_str)
